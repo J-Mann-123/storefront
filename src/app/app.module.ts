@@ -7,7 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './products/product-item.component';
 
 @NgModule({
   declarations: [
