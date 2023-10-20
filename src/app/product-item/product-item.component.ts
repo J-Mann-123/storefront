@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
+import { ProductsService } from '../services/products.service';
+import { ProductItemDetailService } from '../services/product-item-detail.service'
 
 @Component({
   selector: 'app-product-item',
@@ -8,8 +10,9 @@ import { Product } from '../models/Product';
 })
 export class ProductItemComponent {
   @Input() product: Product
+  productList: any[] = [];
 
-  constructor() {
+  constructor(private productsService: ProductsService, private productItemDetailService: ProductItemDetailService) {
     this.product = {
       id: 0,
       name: 'test',
@@ -18,5 +21,16 @@ export class ProductItemComponent {
       description: '',
     }
   }
-
+  ngOnInit (): void {
+    // gets all of the links
+    this.productList = this.productsService.getProducts();
+  }
+  seeProduct (product: any): void {
+    this.productItemDetailService.returnProduct(product);
+    alert("Added!");
+  }
+  addToProduct (product: any): void {
+    this.productItemDetailService.returnProduct(product);
+    alert("Added!");
+  }
 }

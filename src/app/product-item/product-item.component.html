@@ -1,11 +1,11 @@
 <div class="product-container">
   
   <a routerLink="/product">
-    <img class="product-image" src="{{product.url}}" />
+    <img (click)="seeProduct(product)" class="product-image" src="{{product.url}}" />
   </a>
   <h2>{{product.name}}</h2>
   <p>{{product.price}}</p>
-  <button>Add to Cart</button>
+  <button (click)="addToProduct(product)">Add to Cart</button>
   <br>
   <select> 
     <option value="1">1</option>
