@@ -28,7 +28,6 @@ export class ProductItemComponent {
   }
   seeProduct (product: any): void {
     this.productItemDetailService.seeProduct(product);
-    alert("Added!");
   }
   addToProduct (product: any): void {
     this.cartService.addToProduct(product);
