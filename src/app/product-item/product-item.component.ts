@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductsService } from '../services/products.service';
 import { ProductItemDetailService } from '../services/product-item-detail.service'
+import { CartService } from '../services/cart.service'
 
 @Component({
   selector: 'app-product-item',
@@ -12,7 +13,7 @@ export class ProductItemComponent {
   @Input() product: Product
   productList: any[] = [];
 
-  constructor(private productsService: ProductsService, private productItemDetailService: ProductItemDetailService) {
+  constructor(private productsService: ProductsService, private productItemDetailService: ProductItemDetailService, private cartService: CartService) {
     this.product = {
       id: 0,
       name: 'test',
@@ -30,7 +31,7 @@ export class ProductItemComponent {
     alert("Added!");
   }
   addToProduct (product: any): void {
-    this.productItemDetailService.addToProduct(product);
+    this.cartService.addToProduct(product);
     alert("Added!");
   }
 }

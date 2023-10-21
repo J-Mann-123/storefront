@@ -17,15 +17,10 @@ export class ProductItemDetailService {
   constructor() { }
 
   getproduct () {
-    console.log(this.products)
     return this.products;
   }
   seeProduct (product: any) {
     this.products = [];
-    this.products.push(product);
-    return this.products;
-  }
-  addToProduct (product: any) {
     this.products.push(product);
     return this.products;
   }
