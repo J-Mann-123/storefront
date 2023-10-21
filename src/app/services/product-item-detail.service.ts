@@ -20,7 +20,12 @@ export class ProductItemDetailService {
     console.log(this.products)
     return this.products;
   }
-  returnProduct (product: any) {
+  seeProduct (product: any) {
+    this.products = [];
+    this.products.push(product);
+    return this.products;
+  }
+  addToProduct (product: any) {
     this.products.push(product);
     return this.products;
   }

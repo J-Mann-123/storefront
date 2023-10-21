@@ -26,11 +26,11 @@ export class ProductItemComponent {
     this.productList = this.productsService.getProducts();
   }
   seeProduct (product: any): void {
-    this.productItemDetailService.returnProduct(product);
+    this.productItemDetailService.seeProduct(product);
     alert("Added!");
   }
   addToProduct (product: any): void {
-    this.productItemDetailService.returnProduct(product);
+    this.productItemDetailService.addToProduct(product);
     alert("Added!");
   }
 }

@@ -5,7 +5,9 @@
   </a>
   <h2>{{product.name}}</h2>
   <p>{{product.price}}</p>
-  <button (click)="addToProduct(product)">Add to Cart</button>
+  <a routerLink="/cart">
+    <button (click)="addToProduct(product)">Add to Cart</button>
+  </a>
   <br>
   <select> 
     <option value="1">1</option>
