@@ -1,14 +1,26 @@
-<div class="cart-item">
-<div class="cart-item-details" *ngFor="let product of products">
-    <h1>{{ product.name }}</h1>
-    <img src="{{product.url}}" />
-    <p>{{product.price}}</p>
-    <select class="number-input"> 
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-</div>
+<div>
+  <divx>
+    <div class="new-cart-item" *ngFor="let product of products">
+      <div class="cart-item">
+        <img src="{{product.url}}" />
+        <div class="cart-item-details">
+          <h5>{{ product.name }}</h5>
+          <p>{{product.price}}</p>
+          <p>{{product.description}}</p>
+          <select class="number-input"> 
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="cart-panel">
+      <h5>product details</h5>
+      <p>inputs</p>
+    </div>
+  </div>
 </div>
