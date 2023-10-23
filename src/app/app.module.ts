@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
 import { EmptyCartComponent } from './empty-cart/empty-cart.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmptyCartComponent } from './empty-cart/empty-cart.component';
     CartComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
-    EmptyCartComponent
+    EmptyCartComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
