@@ -1,20 +1,28 @@
-<div class="cart-container">
-    <div class="new-cart-item" *ngFor="let product of products">
-      <div class="cart-item">
-        <img src="{{product.url}}" />
-        <div class="cart-item-details">
-          <h5>{{ product.name }}</h5>
-          <p>{{product.price}}</p>
-          <p>{{product.description}}</p>
-          <input [(ngModel)]="product.quantity" value="1" class="number-input" type="number" min="1" max="10" />
-          <button style="margin-top: 15px;" (click)="removeProduct(product)"> remove item </button>
-        </div>
-        <br>
+<div *ngIf="products[0]" class="cart-container">
+  <div class="new-cart-item" *ngFor="let product of products">
+    <div class="cart-item">
+      <img src="{{product.url}}" />
+      <div class="cart-item-details">
+        <h5>{{ product.name }}</h5>
+        <p>{{product.price}}</p>
+        <p>{{product.description}}</p>
+        <input [(ngModel)]="product.quantity" value="1" class="number-input" type="number" min="1" max="10" />
+        <button style="margin-top: 15px;" (click)="removeProduct(product)"> remove item </button>
       </div>
+      <br>
     </div>
-    <h5 *ngIf="products[0]" class="total-price">Total Price: {{totalPrice()}} </h5>
-    <div class="cart-panel">
-      <h5>product details</h5>
-      <p>inputs</p>
-    </div>
+  </div>
+  <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
+  <div class="cart-panel">
+    <h6>Full Name</h6>
+    <input class="text-input" />
+    <h6>Address</h6>
+    <input class="text-input" />
+    <h6>Credit Card Number</h6>
+    <input class="text-input" />
+  </div>
+</div>
+<div>
+  nothing here
+  <!-- empty cart component -->
 </div>

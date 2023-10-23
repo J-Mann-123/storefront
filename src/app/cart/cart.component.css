@@ -81,6 +81,10 @@
     align-items: center;
     margin-top: 20px;
   }
+  .text-input {
+    width: 350px;
+    margin-bottom: 20px;
+  }
   .number-input {
     width: 80px;
     text-align: center;
