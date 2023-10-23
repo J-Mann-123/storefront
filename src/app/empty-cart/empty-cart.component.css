@@ -1,0 +1,14 @@
+.empty-cart-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.empty-cart-title {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.empty-cart-description {
+    display: flex;
+    justify-content: center;
+}
