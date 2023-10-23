@@ -14,7 +14,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit () {
     this.products = this.cartService.getproduct()
-    console.log('cart products', this.products)
+  }
+
+  totalPrice () {
+    const productPrices = this.products.map((product) => {
+      return product.quantity * product.price
+    })
+    const sumProductPrices = productPrices.reduce((x, y) => x + y)
+    return sumProductPrices.toFixed(2)
   }
 
   removeProduct (product: Product): void {
