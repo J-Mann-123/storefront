@@ -9,9 +9,9 @@ import { CartService } from '../services/cart.service'
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent {
-  @Input() product: Product
-  productList: any[] = [];
+export class ProductItemComponent implements OnInit {
+  @Input() product: Product;
+  productList: Product[] = [];
 
   constructor(private productsService: ProductsService, private productItemDetailService: ProductItemDetailService, private cartService: CartService) {
     this.product = {
@@ -22,14 +22,18 @@ export class ProductItemComponent {
       description: '',
     }
   }
+
   ngOnInit (): void {
-    // gets all of the links
-    this.productList = this.productsService.getProducts();
+    this.productsService.getProducts().subscribe((products: Product[]) => {
+      this.productList = products;
+    });
   }
-  seeProduct (product: any): void {
+
+  seeProduct (product: Product): void {
     this.productItemDetailService.seeProduct(product);
   }
-  addToProduct (product: any): void {
+
+  addToProduct (product: Product): void {
     this.cartService.addToProduct(product);
     alert("Added!");
   }
