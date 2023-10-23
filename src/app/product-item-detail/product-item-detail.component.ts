@@ -13,9 +13,7 @@ export class ProductItemDetailComponent implements OnInit {
   constructor(private productItemDetailService: ProductItemDetailService, private cartService: CartService) { }
 
   ngOnInit (): void {
-    console.log(this.products, 'this.products 1')
-    this.products = this.productItemDetailService.getproduct();
-    console.log(this.products, 'this.products 2')
+    this.products = this.productItemDetailService.getProduct();
   }
   addToProduct (product: any): void {
     this.cartService.addToProduct(product);

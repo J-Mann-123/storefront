@@ -16,7 +16,7 @@ export class CartService {
 
   constructor() { }
 
-  getproduct () {
+  getProduct () {
     return this.products;
   }
 

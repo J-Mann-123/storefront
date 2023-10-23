@@ -16,7 +16,7 @@ export class ProductItemDetailService {
 
   constructor() { }
 
-  getproduct () {
+  getProduct () {
     return this.products;
   }
   seeProduct (product: any) {
