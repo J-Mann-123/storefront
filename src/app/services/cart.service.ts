@@ -25,4 +25,8 @@ export class CartService {
     this.products.push(product);
     return this.products;
   }
+  removeProduct (products: Product) {
+    this.products = this.products.filter(p => p.id !== products.id);
+    return this.products;
+  }
 }
