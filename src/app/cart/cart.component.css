@@ -81,6 +81,9 @@
     align-items: center;
     margin-top: 20px;
   }
+  .submit-button {
+    margin-bottom: 20px;
+  }
   .text-input {
     width: 350px;
     margin-bottom: 20px;

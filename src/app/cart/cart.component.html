@@ -12,7 +12,7 @@
         <br>
       </div>
     </div>
-  <form #form="ngForm">
+  <form #form="ngForm" (ngSubmit)="submitCart()">
     <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
     <div class="cart-panel">
 
@@ -20,6 +20,7 @@
       <input class="text-input"
       [(ngModel)]="fullName"
       name="fullName"
+      required
       />
 
       <h6>Address</h6>
@@ -27,6 +28,7 @@
       class="text-input"
       [(ngModel)]="address"
       name="address"
+      required
       />
       
       <h6>Credit Card Number</h6>
@@ -36,13 +38,11 @@
       maxlength="16"
       [(ngModel)]="creditCard"
       name="creditCard"
+      required
       />
-
+    <input class="submit-button" [disabled]="form.invalid" type="submit" value="Submit" />
     </div>
   </form>
-  <a routerLink="/confirmation">
-    <button type="submit" (click)="submitCart()" style="margin-bottom: 20px;" class="btn submit-btn">Submit</button>
-    </a>
 </div>
 <div *ngIf="!products[0]">
   <app-empty-cart></app-empty-cart>
