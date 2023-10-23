@@ -9,13 +9,15 @@ import { Product } from '../models/Product'
 })
 export class CartComponent implements OnInit {
   products: any[] = [];
+
   constructor(private cartService: CartService) { }
+
   ngOnInit () {
     this.products = this.cartService.getproduct()
     console.log('cart products', this.products)
   }
+
   removeProduct (product: Product): void {
     this.products = this.cartService.removeProduct(product)
   }
-
 }
