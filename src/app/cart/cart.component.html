@@ -1,29 +1,48 @@
 <div *ngIf="products[0]" class="cart-container">
-  <div class="new-cart-item" *ngFor="let product of products">
-    <div class="cart-item">
-      <img src="{{product.url}}" />
-      <div class="cart-item-details">
-        <h5>{{ product.name }}</h5>
-        <p>{{product.price}}</p>
-        <p>{{product.description}}</p>
-        <input [(ngModel)]="product.quantity" value="1" class="number-input" type="number" min="1" max="10" />
-        <button style="margin-top: 15px;" (click)="removeProduct(product)"> remove item </button>
+    <div class="new-cart-item" *ngFor="let product of products">
+      <div class="cart-item">
+        <img src="{{product.url}}" />
+        <div class="cart-item-details">
+          <h5>{{ product.name }}</h5>
+          <p>{{product.price}}</p>
+          <p>{{product.description}}</p>
+          <input [(ngModel)]="product.quantity" value="1" class="number-input" type="number" min="1" max="10" />
+          <button style="margin-top: 15px;" (click)="removeProduct(product)"> remove item </button>
+        </div>
+        <br>
       </div>
-      <br>
     </div>
-  </div>
-  <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
-  <div class="cart-panel">
-    <h6>Full Name</h6>
-    <input class="text-input" />
-    <h6>Address</h6>
-    <input class="text-input" />
-    <h6>Credit Card Number</h6>
-    <input class="text-input" />
-    <a routerLink="/confirmation">
-    <button (click)="submitCart()">Submit</button>
+  <form #form="ngForm">
+    <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
+    <div class="cart-panel">
+
+      <h6>Full Name</h6>
+      <input class="text-input"
+      [(ngModel)]="fullName"
+      name="fullName"
+      />
+
+      <h6>Address</h6>
+      <input 
+      class="text-input"
+      [(ngModel)]="address"
+      name="address"
+      />
+      
+      <h6>Credit Card Number</h6>
+      <input 
+      class="text-input" 
+      minlength="12"
+      maxlength="16"
+      [(ngModel)]="creditCard"
+      name="creditCard"
+      />
+
+    </div>
+  </form>
+  <a routerLink="/confirmation">
+    <button type="submit" (click)="submitCart()" style="margin-bottom: 20px;" class="btn submit-btn">Submit</button>
     </a>
-  </div>
 </div>
 <div *ngIf="!products[0]">
   <app-empty-cart></app-empty-cart>

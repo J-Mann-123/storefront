@@ -29,6 +29,7 @@ export class CartService {
     return this.products;
   }
   submitCart () {
+    alert('submitted')
     this.products = [];
     return this.products
   }

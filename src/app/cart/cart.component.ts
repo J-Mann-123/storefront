@@ -9,6 +9,9 @@ import { Product } from '../models/Product'
 })
 export class CartComponent implements OnInit {
   products: any[] = [];
+  fullName: string = '';
+  address: string = '';
+  creditCard: number | null = null;
 
   constructor(private cartService: CartService) { }
 
