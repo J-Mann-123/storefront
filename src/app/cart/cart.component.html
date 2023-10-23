@@ -20,6 +20,9 @@
     <input class="text-input" />
     <h6>Credit Card Number</h6>
     <input class="text-input" />
+    <a routerLink="/confirmation">
+    <button (click)="submitCart()">Submit</button>
+    </a>
   </div>
 </div>
 <div *ngIf="!products[0]">

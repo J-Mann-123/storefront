@@ -27,4 +27,8 @@ export class CartComponent implements OnInit {
   removeProduct (product: Product): void {
     this.products = this.cartService.removeProduct(product)
   }
+
+  submitCart () {
+    this.products = this.cartService.submitCart()
+  }
 }

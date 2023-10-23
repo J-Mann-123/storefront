@@ -17,7 +17,6 @@ export class CartService {
   constructor() { }
 
   getproduct () {
-    console.log(this.products)
     return this.products;
   }
 
@@ -28,5 +27,9 @@ export class CartService {
   removeProduct (products: Product) {
     this.products = this.products.filter(p => p.id !== products.id);
     return this.products;
+  }
+  submitCart () {
+    this.products = [];
+    return this.products
   }
 }
