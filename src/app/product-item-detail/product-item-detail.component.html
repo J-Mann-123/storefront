@@ -5,13 +5,8 @@
   <h1>{{ product.name }}</h1>
   <p>{{product.price}}</p>
   <p>{{product.description}}</p>
-  <select class="select-input"> 
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+  <input class="number-input" type="number" min="1" max="10" />
+  <br>
   <button (click)="addToProduct(product)">Add to Cart</button>
 </div>
 

@@ -3,9 +3,9 @@ img {
     width: 320px;
   }
   
-  .select-input {
-    width: 108px; 
-    margin-bottom: 8px;
+  .number-input {
+    width: 50px; 
+    margin-bottom: 18px;
   }
   
   .detail-container {

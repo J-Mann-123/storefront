@@ -5,15 +5,9 @@
   </a>
   <h2>{{product.name}}</h2>
   <p>{{product.price}}</p>
+  <input class="number-input" type="number" min="1" max="10" />
   <a routerLink="/cart">
     <button (click)="addToProduct(product)">Add to Cart</button>
   </a>
   <br>
-  <select> 
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
 </div>
