@@ -26,7 +26,6 @@ export class CartComponent implements OnInit {
     if (this.products[0]) {
       this.assignPrice();
     }
-    // console.log('this.totalPrice:', this.totalPrice(), 'fP', this.fullPrice)
   }
 
   totalPrice () {
@@ -41,7 +40,6 @@ export class CartComponent implements OnInit {
     return new Promise<void>((resolve) => {
       this.totalPrice();
       this.fullPrice = this.totalPrice()
-      // return console.log('this.Fullprice in asignprice', this.fullPrice)
       resolve();
     });
   }
@@ -59,8 +57,5 @@ export class CartComponent implements OnInit {
       .catch(error => {
         console.error("An error occurred:", error);
       });
-
-    // this.userInfo = this.cartService.submitCart()
-    // this.router.navigateByUrl('/confirmation')
   }
 }
