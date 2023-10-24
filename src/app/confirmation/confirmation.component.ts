@@ -13,6 +13,7 @@ export class ConfirmationComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit () {
+    console.log('returned')
     this.fullName = this.cartService.getUserInfo()
     console.log('this.fullName:', this.fullName)
   }

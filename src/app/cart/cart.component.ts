@@ -23,8 +23,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit () {
     this.products = this.cartService.getProduct()
-    this.assignPrice();
-    console.log('this.totalPrice:', this.totalPrice(), 'fP', this.fullPrice)
+    if (this.products[0]) {
+      this.assignPrice();
+    }
+    // console.log('this.totalPrice:', this.totalPrice(), 'fP', this.fullPrice)
   }
 
   totalPrice () {
@@ -35,10 +37,13 @@ export class CartComponent implements OnInit {
     const sumProductPrices = productPrices.reduce((x, y) => x + y)
     return sumProductPrices.toFixed(2)
   }
-  assignPrice () {
-    this.totalPrice();
-    this.fullPrice = this.totalPrice()
-    return console.log('this.Fullprice in asignprice', this.fullPrice)
+  assignPrice (): Promise<void> {
+    return new Promise<void>((resolve) => {
+      this.totalPrice();
+      this.fullPrice = this.totalPrice()
+      // return console.log('this.Fullprice in asignprice', this.fullPrice)
+      resolve();
+    });
   }
 
   removeProduct (product: Product): void {
@@ -46,10 +51,16 @@ export class CartComponent implements OnInit {
   }
 
   submitCart () {
-    this.products = this.cartService.submitCart()
-    this.fullName = this.cartService.submitCart()
-    this.submitOn = true;
+    this.assignPrice().then(() => {
+      this.products = this.cartService.submitCart()
+      this.fullName = this.cartService.submitCart()
+      this.submitOn = !this.submitOn;
+    })
+      .catch(error => {
+        console.error("An error occurred:", error);
+      });
+
     // this.userInfo = this.cartService.submitCart()
-    this.router.navigateByUrl('/confirmation')
+    // this.router.navigateByUrl('/confirmation')
   }
 }
