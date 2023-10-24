@@ -51,7 +51,6 @@ export class CartComponent implements OnInit {
   submitCart () {
     this.assignPrice().then(() => {
       this.products = this.cartService.submitCart()
-      this.fullName = this.cartService.submitCart()
       this.submitOn = !this.submitOn;
     })
       .catch(error => {

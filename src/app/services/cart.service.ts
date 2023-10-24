@@ -15,19 +15,10 @@ export interface Product {
 export class CartService {
   products: any[] = [];
 
-  fullName: any = '';
-  address: any = '';
-  creditCard: any = '';
-
-
   constructor() { }
 
   getProduct () {
     return this.products;
-  }
-
-  getUserInfo () {
-    return this.fullName;
   }
 
   addToProduct (product: any) {
@@ -41,7 +32,6 @@ export class CartService {
   }
 
   submitCart () {
-    this.products = [];
-    return this.fullName;
+    return this.products = [];
   }
 }
