@@ -42,7 +42,7 @@
     </div>
   </form>
 </div>
-<div *ngIf="!products[0]">
+<div *ngIf="!products[0] && !submitOn">
   <app-empty-cart></app-empty-cart>
 </div>
-<app-confirmation [fullName]="fullName" [fullPrice]="fullPrice"></app-confirmation>
+<app-confirmation *ngIf="submitOn" [fullName]="fullName" [fullPrice]="fullPrice"></app-confirmation>

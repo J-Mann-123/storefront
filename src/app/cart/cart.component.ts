@@ -17,6 +17,8 @@ export class CartComponent implements OnInit {
 
   fullPrice: any;
 
+  submitOn: Boolean = false;
+
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit () {
@@ -46,6 +48,7 @@ export class CartComponent implements OnInit {
   submitCart () {
     this.products = this.cartService.submitCart()
     this.fullName = this.cartService.submitCart()
+    this.submitOn = true;
     // this.userInfo = this.cartService.submitCart()
     this.router.navigateByUrl('/confirmation')
   }
