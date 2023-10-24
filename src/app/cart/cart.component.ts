@@ -32,7 +32,6 @@ export class CartComponent implements OnInit {
     const productPrices = this.products.map((product) => {
       return product.quantity * product.price
     })
-    console.log(productPrices)
     const sumProductPrices = productPrices.reduce((x, y) => x + y)
     return sumProductPrices.toFixed(2)
   }
