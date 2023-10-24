@@ -6,6 +6,7 @@ export interface Product {
   price: number,
   url: string,
   description: string,
+  quantity: number,
 }
 
 @Injectable({
@@ -14,23 +15,33 @@ export interface Product {
 export class CartService {
   products: any[] = [];
 
+  fullName: any = '';
+  address: any = '';
+  creditCard: any = '';
+
+
   constructor() { }
 
   getProduct () {
     return this.products;
   }
 
+  getUserInfo () {
+    return this.fullName;
+  }
+
   addToProduct (product: any) {
     this.products.push(product);
     return this.products;
   }
+
   removeProduct (products: Product) {
     this.products = this.products.filter(p => p.id !== products.id);
     return this.products;
   }
+
   submitCart () {
-    alert('submitted')
     this.products = [];
-    return this.products
+    return this.fullName;
   }
 }

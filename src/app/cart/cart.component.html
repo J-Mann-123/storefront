@@ -14,6 +14,7 @@
     </div>
   <form #form="ngForm" (ngSubmit)="submitCart()">
     <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
+    <p>user info: {{fullName}}</p>
     <div class="cart-panel">
 
       <h6>Full Name</h6>
@@ -26,7 +27,6 @@
       <h6>Address</h6>
       <input 
       class="text-input"
-      [(ngModel)]="address"
       name="address"
       required
       />
@@ -36,9 +36,7 @@
       class="text-input" 
       minlength="12"
       maxlength="16"
-      [(ngModel)]="creditCard"
       name="creditCard"
-      required
       />
     <input class="submit-button" [disabled]="form.invalid" type="submit" value="Submit" />
     </div>
@@ -47,3 +45,4 @@
 <div *ngIf="!products[0]">
   <app-empty-cart></app-empty-cart>
 </div>
+<app-confirmation [fullName]="fullName" [fullPrice]="fullPrice"></app-confirmation>
