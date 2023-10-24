@@ -6,8 +6,6 @@
   <h2>{{product.name}}</h2>
   <p>{{product.price}}</p>
     <input [(ngModel)]="product.quantity" value="1" class="number-input" type="number" min="1" max="10" />
-  <a routerLink="/cart">
     <button (click)="addToProduct(product)">Add to Cart</button>
-  </a>
   <br>
 </div>
