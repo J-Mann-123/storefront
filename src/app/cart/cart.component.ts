@@ -45,6 +45,8 @@ export class CartComponent implements OnInit {
 
   removeProduct (product: Product): void {
     this.products = this.cartService.removeProduct(product)
+    alert('Product has been removed');
+
   }
 
   submitCart () {
