@@ -40,7 +40,9 @@
       required
       minlength="12"
       maxlength="16"
+      (ngModelChange)="validateName()"
       />
+      <div *ngIf="nameError" style="margin-bottom: 10px; color: red;">{{ nameError }}</div>
     <input class="submit-button" [disabled]="form.invalid" type="submit" value="Submit" />
     </div>
   </form>

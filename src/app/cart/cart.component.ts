@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   fullName: any;
   address: any = '';
   creditCard: any = '';
+  nameError: string = '';
 
   fullPrice: any;
 
@@ -48,6 +49,15 @@ export class CartComponent implements OnInit {
     alert('Product has been removed');
 
   }
+
+  validateName () {
+    if (this.creditCard.trim() === '') {
+      this.nameError = 'Credit card is required';
+    } else {
+      this.nameError = '';
+    }
+  }
+
 
   submitCart () {
     this.assignPrice().then(() => {
