@@ -13,7 +13,7 @@
       </div>
     </div>
     <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
-    <form #form="ngForm" (ngSubmit)="submitCart()">
+    <form #form="ngForm" class="cart-panel" (ngSubmit)="submitCart()">
       <app-cart-form (formData)="getFormData($event)" (validateForm)="validateCartForm($event)"></app-cart-form>
       <input class="submit-button" [disabled]="!validateForm" type="submit" value="Submit" />
     </form>
