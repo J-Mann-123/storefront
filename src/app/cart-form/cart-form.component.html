@@ -8,13 +8,12 @@
       required
       (ngModelChange)="sendFormData()"
       />
-
+      <div *ngIf="fullNameError" style="margin-bottom: 10px; color: red;">{{ fullNameError }}</div>
       <h6>Address</h6>
       <input 
       class="text-input"
       [(ngModel)]="address"
       name="address"
-      required
       />
 
       <h6>Credit Card Number</h6>
@@ -25,8 +24,8 @@
       required
       minlength="12"
       maxlength="16"
-      (ngModelChange)="validateName()"
+      (ngModelChange)="validateCreditCard()"
       />
-      <div *ngIf="nameError" style="margin-bottom: 10px; color: red;">{{ nameError }}</div>
+      <div *ngIf="cardError" style="margin-bottom: 10px; color: red;">{{ cardError }}</div>
     </div>
-
+    

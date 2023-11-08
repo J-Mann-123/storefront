@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   fullName: any;
   address: any = '';
   creditCard: any = '';
-  nameError: string = '';
+  validateForm: Boolean = false;
 
   fullPrice: any;
 
@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
     if (this.products[0]) {
       this.assignPrice();
     }
+    this.validateCartForm(this.validateForm)
   }
 
   totalPrice () {
@@ -46,10 +47,15 @@ export class CartComponent implements OnInit {
   }
 
   submitCart () {
-    this.assignPrice().then(() => {
-      this.products = this.cartService.submitCart()
-      this.submitOn = !this.submitOn;
-    })
+    if (this.validateForm = true) {
+      this.assignPrice().then(() => {
+        this.products = this.cartService.submitCart()
+        this.submitOn = !this.submitOn;
+      })
+    }
+    else {
+      return undefined
+    }
   }
 
   removeProduct (product: Product): void {
@@ -59,5 +65,8 @@ export class CartComponent implements OnInit {
   }
   getFormData (form: any) {
     this.formData = form
+  }
+  validateCartForm (validate: Boolean) {
+    this.validateForm = validate
   }
 }

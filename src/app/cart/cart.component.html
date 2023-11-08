@@ -14,8 +14,8 @@
     </div>
     <h5 class="total-price">Total Price: {{totalPrice()}} </h5>
     <form #form="ngForm" (ngSubmit)="submitCart()">
-      <app-cart-form (formData)="getFormData($event)"></app-cart-form>
-        <input class="submit-button" [disabled]="form.invalid" type="submit" value="Submit" />
+      <app-cart-form (formData)="getFormData($event)" (validateForm)="validateCartForm($event)"></app-cart-form>
+      <input class="submit-button" [disabled]="!validateForm" type="submit" value="Submit" />
     </form>
   </div>
 <div *ngIf="!products[0] && !submitOn">
