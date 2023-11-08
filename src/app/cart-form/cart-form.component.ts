@@ -34,31 +34,26 @@ export class CartFormComponent implements OnInit {
   // run each time the creditcard it updated since the credit card only needs
   // to be validated and not passed to the parent
   sendFormData () {
-    this.validateFullName()
-    this.validateFullForm()
+    this.validateFullName();
     const form: any = {
       fullName: this.fullName,
       address: this.address,
       creditCard: this.creditCard
-    }
+    };
     this.formData.emit(form);
-    return this.validateCreditCard()
+    this.validateFullForm();
+    return this.validateCreditCard();
   }
 
   validateFullForm () {
-    if (this.creditCardValidate && this.fullNameValidate) {
-      this.validate = true;
-      this.validateForm.emit(this.validate)
-    } else {
-      this.validate = false
-      this.validateForm.emit(this.validate)
-    }
+    this.validate = this.creditCardValidate && this.fullNameValidate;
+    this.validateForm.emit(this.validate);
   }
 
   validateFullName () {
     if (this.fullName.trim() === '') {
-      this.fullNameValidate = false
-      this.fullNameError = 'full Name is required';
+      this.fullNameValidate = false;
+      this.fullNameError = 'Full Name is required';
     } else {
       this.fullNameValidate = true;
       this.fullNameError = '';
@@ -66,23 +61,22 @@ export class CartFormComponent implements OnInit {
   }
 
   validateCreditCard () {
-    if (this.creditCard.trim() === '') {
+    const creditCardLength = this.creditCard.trim().length;
+
+    if (creditCardLength === 0) {
       this.creditCardValidate = false;
-      this.validateFullForm()
       this.cardError = 'Credit card is required';
-    } else if (this.creditCard.trim().length < 12) {
+    } else if (creditCardLength < 12) {
       this.creditCardValidate = false;
-      this.validateFullForm()
-      this.cardError = 'Credit card is must be at least 12 numbers long';
-    }
-    else if (this.creditCard.trim().length > 12) {
+      this.cardError = 'Credit card must be at least 12 numbers long';
+    } else if (creditCardLength > 12) {
       this.creditCardValidate = true;
-      this.validateFullForm()
       this.cardError = '';
+    } else {
+      this.creditCardValidate = false;
     }
-    else {
-      this.creditCardValidate = false
-      this.validateFullForm()
-    }
+
+    this.validateFullForm();
   }
+
 }
