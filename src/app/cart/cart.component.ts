@@ -64,8 +64,9 @@ export class CartComponent implements OnInit {
       this.products = this.cartService.submitCart()
       this.submitOn = !this.submitOn;
     })
-      .catch(error => {
-        console.error("An error occurred:", error);
-      });
+  removeProduct (product: Product): void {
+    this.products = this.cartService.removeProduct(product)
+    alert('Product has been removed');
+
   }
 }
