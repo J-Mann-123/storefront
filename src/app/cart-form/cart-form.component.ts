@@ -25,14 +25,8 @@ export class CartFormComponent implements OnInit {
   ngOnInit (): void {
     this.sendFormData()
     this.validateCreditCard()
-    // this.validateFullForm()
   }
-
-  // this function validates the fullName and the form itself
-  // it then will emit data to the parent component
-  // it will run each time the title is updated and doesn't need to 
-  // run each time the creditcard it updated since the credit card only needs
-  // to be validated and not passed to the parent
+  // form validation to validate fullName and creditcard, then pass validated result to parent
   sendFormData () {
     this.validateFullName();
     const form: any = {
