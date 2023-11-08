@@ -7,8 +7,8 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./confirmation.component.css']
 })
 export class ConfirmationComponent implements OnInit {
-  @Input() fullName: any = '';
   @Input() fullPrice: any;
+  @Input() formData: any;
 
   constructor(private cartService: CartService) { }
 

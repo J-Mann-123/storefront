@@ -13,6 +13,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
 import { EmptyCartComponent } from './empty-cart/empty-cart.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { CartFormComponent } from './cart-form/cart-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     ProductItemComponent,
     ProductItemDetailComponent,
     EmptyCartComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    CartFormComponent
   ],
   imports: [
     BrowserModule,

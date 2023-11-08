@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
   fullPrice: any;
 
   submitOn: Boolean = false;
+  formData: any;
 
   constructor(private cartService: CartService, private router: Router) { }
 
@@ -44,29 +45,19 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeProduct (product: Product): void {
-    this.products = this.cartService.removeProduct(product)
-    alert('Product has been removed');
-
-  }
-
-  validateName () {
-    if (this.creditCard.trim() === '') {
-      this.nameError = 'Credit card is required';
-    } else {
-      this.nameError = '';
-    }
-  }
-
-
   submitCart () {
     this.assignPrice().then(() => {
       this.products = this.cartService.submitCart()
       this.submitOn = !this.submitOn;
     })
+  }
+
   removeProduct (product: Product): void {
     this.products = this.cartService.removeProduct(product)
     alert('Product has been removed');
 
+  }
+  getFormData (form: any) {
+    this.formData = form
   }
 }
