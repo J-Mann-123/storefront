@@ -22,8 +22,14 @@ export class CartService {
   }
 
   addToProduct (product: any) {
-    this.products.push(product);
-    return this.products;
+    const checkExistingItem = this.products.some(item => item.id === product.id)
+    if (!checkExistingItem) {
+      this.products.push(product);
+      this.products;
+      alert("Added!");
+    } else {
+      alert('This product already has been added to cart')
+    }
   }
 
   removeProduct (products: Product) {

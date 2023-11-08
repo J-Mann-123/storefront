@@ -36,6 +36,5 @@ export class ProductItemComponent implements OnInit {
 
   addToProduct (product: Product): void {
     this.cartService.addToProduct(product);
-    alert("Added!");
   }
 }
